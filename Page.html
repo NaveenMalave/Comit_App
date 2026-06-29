@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COMIT | Loan Application Form</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="page-header">
+        <div class="container header-inner">
+            <div class="brand-block">
+                <div class="brand-badge">C</div>
+                <div>
+                    <h1>COMIT</h1>
+                    <p>Loan Application Portal</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="index.html" class="btn btn--ghost">Back</a>
+                <span class="loan-pill" id="loanTypeDisplay">Loan Type: Select</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-shell">
+        <section class="progress-card">
+            <h2>Application Progress</h2>
+            <div class="progress-steps" role="tablist" aria-label="Loan application steps">
+                <button type="button" class="step-button active" data-step="0">Personal Details</button>
+                <button type="button" class="step-button" data-step="1">Employment</button>
+                <button type="button" class="step-button" data-step="2">Loan Details</button>
+                <button type="button" class="step-button" data-step="3">Bank Details</button>
+                <button type="button" class="step-button" data-step="4">Documents</button>
+                <button type="button" class="step-button" data-step="5">Nominee Details</button>
+                <button type="button" class="step-button" data-step="6">Declaration</button>
+            </div>
+        </section>
+
+        <form id="loanForm" novalidate>
+            <section class="form-card form-step active" data-step="0">
+                <div class="section-title">
+                    <h3>1. Personal Details</h3>
+                    <p>Basic applicant information</p>
+                </div>
+                <div class="grid two-col">
+                    <label>
+                        Full Name
+                        <input type="text" name="fullName" required />
+                    </label>
+                    <label>
+                        Father’s Name
+                        <input type="text" name="fatherName" required />
+                    </label>
+                    <label>
+                        Mother’s Name
+                        <input type="text" name="motherName" required />
+                    </label>
+                    <label>
+                        Date of Birth
+                        <input type="date" name="dob" required />
+                    </label>
+                    <label>
+                        Gender
+                        <select name="gender" required>
+                            <option value="">Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </label>
+                    <label>
+                        Marital Status
+                        <select name="maritalStatus" required>
+                            <option value="">Select</option>
+                            <option>Single</option>
+                            <option>Married</option>
+                            <option>Widowed</option>
+                            <option>Divorced</option>
+                        </select>
+                    </label>
+                    <label>
+                        Aadhaar Number
+                        <input type="text" name="aadhaar" required pattern="\d{12}" maxlength="12" />
+                    </label>
+                    <label>
+                        PAN Number
+                        <input type="text" name="pan" required pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" />
+                    </label>
+                    <label>
+                        Mobile Number
+                        <input type="tel" name="mobile" required pattern="\d{10}" maxlength="10" />
+                    </label>
+                    <label>
+                        Alternate Mobile Number
+                        <input type="tel" name="altMobile" pattern="\d{10}" maxlength="10" />
+                    </label>
+                    <label>
+                        Email Address
+                        <input type="email" name="email" required />
+                    </label>
+                    <label>
+                        City
+                        <input type="text" name="city" required />
+                    </label>
+                    <label>
+                        State
+                        <input type="text" name="state" required />
+                    </label>
+                    <label>
+                        PIN Code
+                        <input type="text" name="pin" required pattern="\d{6}" maxlength="6" />
+                    </label>
+                    <label>
+                        Nationality
+                        <input type="text" name="nationality" required />
+                    </label>
+                    <label class="full-width">
+                        Current Address
+                        <textarea name="currentAddress" rows="3" required></textarea>
+                    </label>
+                    <label class="full-width">
+                        Permanent Address
+                        <textarea name="permanentAddress" rows="3" required></textarea>
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn--ghost back-btn">Back to Home</button>
+                    <button type="button" class="btn btn--primary next-btn">Continue</button>
+                </div>
+            </section>
+
+            <section class="form-card form-step" data-step="1">
+                <div class="section-title">
+                    <h3>2. Employment Details</h3>
+                    <p>Professional and income details</p>
+                </div>
+                <div class="grid two-col">
+                    <label>
+                        Employment Type
+                        <select name="employmentType" required>
+                            <option value="">Select</option>
+                            <option>Salaried</option>
+                            <option>Self Employed</option>
+                            <option>Business Owner</option>
+                            <option>Student</option>
+                            <option>Farmer</option>
+                        </select>
+                    </label>
+                    <label>
+                        Company Name
+                        <input type="text" name="companyName" required />
+                    </label>
+                    <label>
+                        Job Designation
+                        <input type="text" name="designation" required />
+                    </label>
+                    <label>
+                        Monthly Salary
+                        <input type="number" name="monthlySalary" required min="1" />
+                    </label>
+                    <label>
+                        Annual Income
+                        <input type="number" name="annualIncome" required min="1" />
+                    </label>
+                    <label>
+                        Years of Experience
+                        <input type="number" name="experience" required min="0" />
+                    </label>
+                    <label class="full-width">
+                        Office Address
+                        <textarea name="officeAddress" rows="3" required></textarea>
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn--ghost back-btn">Previous</button>
+                    <button type="button" class="btn btn--primary next-btn">Continue</button>
+                </div>
+            </section>
+
+            <section class="form-card form-step" data-step="2">
+                <div class="section-title">
+                    <h3>3. Loan Details</h3>
+                    <p>Loan requirements and repayment plan</p>
+                </div>
+                <div class="grid two-col">
+                    <label>
+                        Loan Type
+                        <input type="text" name="selectedLoanType" id="selectedLoanType" readonly />
+                    </label>
+                    <label>
+                        Loan Amount Required
+                        <input type="number" name="loanAmount" required min="1" />
+                    </label>
+                    <label>
+                        Loan Tenure
+                        <select name="loanTenure" required>
+                            <option value="">Select</option>
+                            <option>1 Year</option>
+                            <option>2 Years</option>
+                            <option>3 Years</option>
+                            <option>5 Years</option>
+                            <option>10 Years</option>
+                            <option>15 Years</option>
+                            <option>20 Years</option>
+                        </select>
+                    </label>
+                    <label>
+                        Preferred EMI Date
+                        <input type="number" name="emiDate" required min="1" max="31" />
+                    </label>
+                    <label>
+                        Existing Loan
+                        <select name="existingLoan" required>
+                            <option value="">Select</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </label>
+                    <label>
+                        Existing EMI Amount
+                        <input type="number" name="existingEmi" min="0" />
+                    </label>
+                    <label class="full-width">
+                        Purpose of Loan
+                        <textarea name="loanPurpose" rows="3" required></textarea>
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn--ghost back-btn">Previous</button>
+                    <button type="button" class="btn btn--primary next-btn">Continue</button>
+                </div>
+            </section>
+
+            <section class="form-card form-step" data-step="3">
+                <div class="section-title">
+                    <h3>4. Bank Details</h3>
+                    <p>Bank account information</p>
+                </div>
+                <div class="grid two-col">
+                    <label>
+                        Bank Name
+                        <input type="text" name="bankName" required />
+                    </label>
+                    <label>
+                        Branch
+                        <input type="text" name="branch" required />
+                    </label>
+                    <label>
+                        Account Holder Name
+                        <input type="text" name="accountHolder" required />
+                    </label>
+                    <label>
+                        Account Number
+                        <input type="text" name="accountNumber" required />
+                    </label>
+                    <label>
+                        Confirm Account Number
+                        <input type="text" name="confirmAccountNumber" required />
+                    </label>
+                    <label>
+                        IFSC Code
+                        <input type="text" name="ifsc" required />
+                    </label>
+                    <label>
+                        Account Type
+                        <select name="accountType" required>
+                            <option value="">Select</option>
+                            <option>Savings</option>
+                            <option>Current</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn--ghost back-btn">Previous</button>
+                    <button type="button" class="btn btn--primary next-btn">Continue</button>
+                </div>
+            </section>
+
+            <section class="form-card form-step" data-step="4">
+                <div class="section-title">
+                    <h3>5. Document Upload</h3>
+                    <p>Upload the required documents</p>
+                </div>
+                <div class="grid two-col" id="documentFields"></div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn--ghost back-btn">Previous</button>
+                    <button type="button" class="btn btn--primary next-btn">Continue</button>
+                </div>
+            </section>
+
+            <section class="form-card form-step" data-step="5">
+                <div class="section-title">
+                    <h3>6. Nominee Details</h3>
+                    <p>Nominee information for your application</p>
+                </div>
+                <div class="grid two-col">
+                    <label>
+                        Nominee Name
+                        <input type="text" name="nomineeName" required />
+                    </label>
+                    <label>
+                        Relationship
+                        <input type="text" name="relationship" required />
+                    </label>
+                    <label>
+                        Mobile Number
+                        <input type="tel" name="nomineeMobile" required pattern="\d{10}" maxlength="10" />
+                    </label>
+                    <label class="full-width">
+                        Address
+                        <textarea name="nomineeAddress" rows="3" required></textarea>
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn--ghost back-btn">Previous</button>
+                    <button type="button" class="btn btn--primary next-btn">Continue</button>
+                </div>
+            </section>
+
+            <section class="form-card form-step" data-step="6">
+                <div class="section-title">
+                    <h3>7. Declaration</h3>
+                    <p>Final confirmation</p>
+                </div>
+                <label class="checkbox-row">
+                    <input type="checkbox" name="declaration" required />
+                    <span>I hereby declare that the information provided above is true and correct.</span>
+                </label>
+                <div class="form-actions">
+                    <button type="button" class="btn btn--ghost back-btn">Previous</button>
+                    <button type="reset" class="btn btn--secondary">Reset</button>
+                    <button type="submit" class="btn btn--primary">Submit Application</button>
+                </div>
+            </section>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 COMIT Loan Management System</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
